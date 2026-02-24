@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Sneaker Elite Perú</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: white; }
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-5px); border-color: #ef4444; }
+    </style>
+</head>
+<body>
+    <header class="p-6 flex justify-between items-center border-b border-white/10 sticky top-0 bg-black/80 backdrop-blur-md z-50">
+        <h1 class="text-xl font-bold italic">SNEAKER ELITE <span class="text-red-600">PERÚ</span></h1>
+        <a href="https://wa.me/51938703934" target="_blank" class="bg-green-600 p-2 rounded-full">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6 invert" alt="WhatsApp">
+        </a>
+    </header>
+    <main class="p-4 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-center">NUESTRA COLECCIÓN</h2>
+        <div class="grid grid-cols-1 gap-8">
+            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000" alt="Nike Dunk Low Panda" class="w-full aspect-square object-cover">
+                <div class="p-6">
+                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Nike</span>
+                    <h3 class="text-xl font-bold mt-1">Dunk Low 'Panda'</h3>
+                    <p class="text-2xl font-bold mt-2">S/ 499.00</p>
+                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Dunk Low Panda" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1597043533400-a9cb4c330170?q=80&w=1000" alt="Jordan 4 Retro" class="w-full aspect-square object-cover">
+                <div class="p-6">
+                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Jordan</span>
+                    <h3 class="text-xl font-bold mt-1">Air Jordan 4 Retro</h3>
+                    <p class="text-2xl font-bold mt-2">S/ 850.00</p>
+                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Jordan 4 Retro" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
+                </div>
+            </div>
+            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000" alt="Air Force 1" class="w-full aspect-square object-cover">
+                <div class="p-6">
+                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Nike</span>
+                    <h3 class="text-xl font-bold mt-1">Air Force 1 '07</h3>
+                    <p class="text-2xl font-bold mt-2">S/ 429.00</p>
+                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Air Force 1" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-zinc-900/50 mt-12 p-8 border-t border-white/10 text-center">
+        <h4 class="font-bold text-lg mb-4">ENVÍOS A TODO EL PERÚ 🇵🇪</h4>
+        <p class="text-zinc-400 text-sm">Shalom • Olva • Marvisur</p>
+        <p class="text-zinc-500 text-xs mt-6 italic">Cusco, Perú</p>
+    </footer>
+</body>
+</html>
