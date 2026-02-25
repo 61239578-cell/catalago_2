@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NIADISHOES | LEYENDAS URBANAS</title>
+    <title>NIADISHOES | EXPERIENCE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; background: #000; color: white; margin: 0; overflow-x: hidden; }
         
-        /* Contenedor principal adaptable */
+        /* --- ESTRUCTURA PC --- */
         .hero-container { display: flex; height: 100vh; width: 100vw; overflow: hidden; }
         
         .hero-section {
             position: relative; flex: 1; height: 100%;
             transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; display: flex; align-items: center; justify-content: center;
         }
 
         .bg-img { 
@@ -26,59 +25,63 @@
             z-index: 1;
         }
 
-        /* Contenedor de Texto Central */
         .info-content {
-            position: relative;
-            width: 85%; max-width: 500px;
-            text-align: center; z-index: 10;
-            transition: all 0.6s ease;
+            position: relative; width: 85%; max-width: 500px;
+            text-align: center; z-index: 10; transition: all 0.6s ease;
         }
 
-        /* Estilos de la Historia */
+        /* Estilos de Texto */
         .history-text { font-size: 11px; line-height: 1.6; margin-bottom: 15px; color: #d1d1d1; }
-        .specs-text { 
-            font-size: 10px; color: #888; 
-            border-top: 1px solid rgba(255,255,255,0.1); 
-            border-bottom: 1px solid rgba(255,255,255,0.1); 
-            padding: 10px 0; margin-bottom: 15px; 
-        }
-        .hype-text { font-size: 11px; font-style: italic; color: #fff; margin-bottom: 20px; font-weight: 300; }
+        .specs-text { font-size: 10px; color: #888; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 0; margin-bottom: 15px; }
+        .hype-text { font-size: 11px; font-style: italic; color: #fff; margin-bottom: 20px; }
+        .btn-buy { border: 1px solid white; padding: 12px 35px; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; transition: 0.4s; }
 
-        .btn-buy {
-            border: 1px solid white; padding: 12px 35px; font-size: 9px;
-            letter-spacing: 4px; text-transform: uppercase; transition: 0.4s;
-            background: transparent; color: white;
-        }
-        .btn-buy:hover { background: white; color: black; font-weight: bold; }
-
-        /* --- CONFIGURACIÓN PARA PC (Laptops y Monitores) --- */
+        /* --- COMPORTAMIENTO DESKTOP --- */
         @media (min-width: 1024px) {
             .info-content { opacity: 0; transform: translateY(20px); pointer-events: none; }
             .hero-section:hover { flex: 4; }
             .hero-section:hover .bg-img { transform: scale(1.05); filter: brightness(0.15); }
-            .hero-section:hover .info-content { 
-                opacity: 1; transform: translateY(0); pointer-events: auto; 
-            }
+            .hero-section:hover .info-content { opacity: 1; transform: translateY(0); pointer-events: auto; }
         }
 
-        /* --- CONFIGURACIÓN PARA CELULARES (Móviles) --- */
+        /* --- EFECTO EXPANSIÓN MÓVIL (Scroll Reveal) --- */
         @media (max-width: 1023px) {
-            .hero-container { flex-direction: column; height: auto; overflow-y: auto; }
-            .hero-section { height: 100vh; width: 100vw; flex: none; border-bottom: 1px solid #111; }
-            .bg-img { filter: brightness(0.25); } /* Más oscuro para lectura constante */
-            .info-content { opacity: 1; transform: none; }
-            header { padding: 20px !important; background: rgba(0,0,0,0.8); backdrop-blur: 10px; }
-            .history-text { font-size: 12px; }
+            .hero-container { 
+                flex-direction: column; 
+                height: 100vh; 
+                overflow-y: scroll; 
+                scroll-snap-type: y mandatory; /* Hace que se detenga justo en cada zapatilla */
+            }
+            .hero-section { 
+                height: 100vh; 
+                flex: none; 
+                scroll-snap-align: start;
+                transition: transform 0.5s ease;
+            }
+            
+            /* Animación sutil de entrada para el texto en móvil */
+            .hero-section .info-content {
+                animation: revealText linear both;
+                animation-timeline: view();
+                animation-range: entry 20% cover 50%;
+            }
+
+            @keyframes revealText {
+                from { opacity: 0; transform: scale(0.8); }
+                to { opacity: 1; transform: scale(1); }
+            }
+
+            header { background: rgba(0,0,0,0.7); backdrop-blur: 10px; padding: 20px !important; }
         }
     </style>
 </head>
 <body>
 
-    <header class="fixed top-0 w-full z-[110] p-10 flex justify-between items-center transition-all">
-        <h1 class="text-xl font-light tracking-[0.5rem] md:tracking-[0.8rem] uppercase">NiadiShoes</h1>
-        <nav class="flex gap-4 md:gap-8">
+    <header class="fixed top-0 w-full z-[110] p-10 flex justify-between items-center">
+        <h1 class="text-xl font-light tracking-[0.5rem] uppercase">NiadiShoes</h1>
+        <nav class="flex gap-4">
             <a href="index.html" class="text-[9px] tracking-widest uppercase border-b border-white">Inicio</a>
-            <a href="coleccion.html" class="text-[9px] tracking-widest uppercase opacity-40 hover:opacity-100">Colección</a>
+            <a href="coleccion.html" class="text-[9px] tracking-widest uppercase opacity-40">Colección</a>
         </nav>
     </header>
 
@@ -87,10 +90,10 @@
         <div class="hero-section">
             <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-img">
             <div class="info-content">
-                <h3 class="text-3xl md:text-4xl font-light tracking-[0.6rem] uppercase mb-6">Air Force 1</h3>
-                <p class="history-text">Lanzadas en 1982 por Bruce Kilgore, fueron las primeras con tecnología Nike Air: amortiguación revolucionaria que salvó el modelo de ser retirado, convirtiéndolo en leyenda urbana.</p>
-                <p class="specs-text">Piel premium duradera, perforaciones para ventilación y suela con Air visible para impactos cero en días largos.</p>
-                <p class="hype-text">¡Imagina dominar la calle con este clásico inmortal: versátil, elegante y eterno, el pie de reyes del básquet a la moda!</p>
+                <h3 class="text-3xl font-light tracking-[0.6rem] uppercase mb-6">Air Force 1</h3>
+                <p class="history-text">Lanzadas en 1982 por Bruce Kilgore, fueron las primeras con tecnología Nike Air: amortiguación revolucionaria que salvó el modelo de ser retirado.</p>
+                <p class="specs-text">Piel premium duradera, perforaciones para ventilación y suela con Air visible.</p>
+                <p class="hype-text">¡Imagina dominar la calle con este clásico inmortal!</p>
                 <p class="text-2xl font-bold mb-6 italic">S/ 115.00</p>
                 <button onclick="comprar('AF1 White', '115')" class="btn-buy">Lo quiero</button>
             </div>
@@ -99,10 +102,10 @@
         <div class="hero-section">
             <img src="https://www.allaboutanthony.com/wp-content/uploads/2021/04/Nike-SB-Dunk-Low-Celadon-WDYWT-On-Feet.jpg" class="bg-img">
             <div class="info-content">
-                <h3 class="text-3xl md:text-4xl font-light tracking-[0.6rem] uppercase mb-6">SB Celadon</h3>
-                <p class="history-text">De los Dunks originales de 1985 para skaters universitarios, esta edición rinde homenaje al senderismo '90s con tonos verde suave y detalles ACG.</p>
-                <p class="specs-text">Zoom Air en talón para aterrizajes suaves, suela circular multidireccional y tracción imbatible; ligera, flexible y transpirable.</p>
-                <p class="hype-text">¡Ponte esta joya skater: durabilidad extrema, estilo fresco natural y grip que te hace volar, edición limitada para winners!</p>
+                <h3 class="text-3xl font-light tracking-[0.6rem] uppercase mb-6">SB Celadon</h3>
+                <p class="history-text">Edición Celadon (2020s) rinde homenaje al senderismo '90s con tonos verde suave y detalles ACG.</p>
+                <p class="specs-text">Zoom Air en talón para aterrizajes suaves y tracción imbatible.</p>
+                <p class="hype-text">¡Ponte esta joya skater: estilo fresco natural y grip que te hace volar!</p>
                 <p class="text-2xl font-bold mb-6 italic">S/ 145.00</p>
                 <button onclick="comprar('SB Celadon', '145')" class="btn-buy">Lo quiero</button>
             </div>
@@ -111,10 +114,10 @@
         <div class="hero-section">
             <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F09%2Fyeezy-boost-350-v2-black-friday-release-information-tw.jpg?w=1080&cbr=1&q=90&fit=max" class="bg-img">
             <div class="info-content">
-                <h3 class="text-3xl md:text-4xl font-light tracking-[0.6rem] uppercase mb-6">Yeezy 350</h3>
-                <p class="history-text">Creada por Kanye West desde 2015 con Adidas, fusiona minimalismo futurista y Boost: espuma que responde como ninguna, devolviendo energía en cada paso.</p>
-                <p class="specs-text">Primeknit transpirable que se adapta como calcetín, suela translúcida wavy y silueta estilizada para look slim.</p>
-                <p class="hype-text">¡La Yeezy 350 es hype puro: comodidad adictiva, versatilidad total y estatus VIP; calzarla es elevar tu game, agarra la tuya!</p>
+                <h3 class="text-3xl font-light tracking-[0.6rem] uppercase mb-6">Yeezy 350</h3>
+                <p class="history-text">Fusiona minimalismo futurista y Boost: espuma que responde devolviendo energía en cada paso.</p>
+                <p class="specs-text">Primeknit transpirable que se adapta como calcetín y suela translúcida wavy.</p>
+                <p class="hype-text">¡La Yeezy 350 es hype puro: comodidad adictiva y versatilidad total!</p>
                 <p class="text-2xl font-bold mb-6 italic">S/ 135.00</p>
                 <button onclick="comprar('Yeezy 350', '135')" class="btn-buy">Lo quiero</button>
             </div>
