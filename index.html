@@ -3,209 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIADISHOES PERÚ | OFFICIAL</title>
+    <title>NIADISHOES PERÚ | OFFICIAL STORE</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; background: #000; overflow-x: hidden; }
+        body { font-family: 'Montserrat', sans-serif; background: #050505; color: white; margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Contenedor Triple Vertical */
-        .main-container { display: flex; height: 100vh; width: 100vw; transition: all 0.6s ease; }
-        
-        .section {
+        /* Navegación Estilo Zara */
+        .nav-link {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
             position: relative;
-            flex: 1;
-            height: 100%;
-            overflow: hidden;
-            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
-            border-right: 1px solid rgba(255,255,255,0.05);
         }
-
-        .section:hover { flex: 2; }
-        .section:hover .overlay-info { opacity: 1; transform: translateY(0); }
-        .section:hover .bg-image { transform: scale(1.1); filter: brightness(0.4); }
-
-        .bg-image {
+        .nav-link::after {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 1.5s ease;
-            filter: brightness(0.6) contrast(1.1); /* Fondo más oscuro y dramático */
+            width: 0; height: 1px; bottom: -5px; left: 0;
+            background-color: white; transition: 0.3s;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Estructura de Portada */
+        .hero-container { display: flex; height: 100vh; width: 100vw; overflow: hidden; }
+        .hero-section {
+            position: relative; flex: 1; height: 100%;
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer; overflow: hidden;
+        }
+        .hero-section:hover { flex: 1.8; }
+        .hero-section:hover .bg-img { transform: scale(1.1); filter: brightness(0.3); }
+        .hero-section:hover .info-overlay { opacity: 1; transform: translateY(0); }
+
+        .bg-img { width: 100%; height: 100%; object-fit: cover; transition: all 1.5s ease; filter: brightness(0.6); }
+
+        .info-overlay {
+            position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 50px; background: linear-gradient(to top, rgba(0,0,0,1) 20%, transparent);
+            opacity: 0; transform: translateY(30px); transition: all 0.6s ease;
         }
 
-        .overlay-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 60px 40px;
-            background: linear-gradient(to top, rgba(0,0,0,1) 30%, transparent);
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s ease 0.2s;
-            color: white;
-            pointer-events: none;
+        .btn-zara {
+            border: 1px solid white; padding: 14px 35px; font-size: 10px; letter-spacing: 5px;
+            text-transform: uppercase; transition: 0.4s; background: transparent; color: white;
         }
+        .btn-zara:hover { background: white; color: black; font-weight: bold; }
 
-        .btn-lo-quiero {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 40px;
-            border: 1px solid white;
-            background: transparent;
-            color: white;
-            font-size: 10px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            transition: all 0.3s;
-            cursor: pointer;
+        /* WhatsApp Flotante */
+        .wa-float {
+            position: fixed; bottom: 35px; right: 35px; z-index: 100;
+            background: white; border-radius: 50%; width: 60px; height: 60px;
+            display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-
-        .btn-lo-quiero:hover { background: white; color: black; font-weight: bold; }
-
-        /* HEADER */
-        header {
-            position: fixed;
-            top: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            text-align: center;
-            width: 100%;
-            pointer-events: none;
-        }
-
-        .brand-name {
-            font-size: 2.8rem;
-            font-weight: 100;
-            letter-spacing: 1.2rem;
-            text-transform: uppercase;
-            color: white;
-            margin: 0;
-            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
-        }
-
-        /* BOTÓN FLOTANTE DE CONTACTO (Neuromarketing: Accesibilidad constante) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 200;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover { transform: translateY(-5px); }
-
-        .wa-text {
-            color: white;
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            background: rgba(0,0,0,0.6);
-            padding: 8px 15px;
-            border-radius: 4px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .wa-icon {
-            width: 55px;
-            height: 55px;
-            background: #fff; /* Blanco para mantener el estilo Zara */
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .wa-icon img { width: 30px; height: 30px; }
 
         @media (max-width: 768px) {
-            .main-container { flex-direction: column; overflow-y: auto; }
-            .section { height: 100vh; min-height: 100vh; }
-            .brand-name { font-size: 1.5rem; letter-spacing: 0.5rem; }
-            .whatsapp-float { bottom: 20px; right: 20px; }
-            .wa-text { display: none; } /* En móvil solo el icono para no estorbar */
+            .hero-container { flex-direction: column; height: auto; }
+            .hero-section { height: 60vh; flex: none; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1 class="brand-name">NiadiShoes</h1>
-        <p class="text-[9px] tracking-[0.5rem] text-white/50 uppercase mt-2">Perú / High Standards</p>
+    <header class="fixed top-0 w-full z-[110] p-10 flex flex-col md:flex-row justify-between items-center bg-gradient-to-b from-black/80 to-transparent">
+        <div class="mb-6 md:mb-0">
+            <h1 class="text-2xl font-light tracking-[0.8rem] uppercase">NiadiShoes</h1>
+        </div>
+        
+        <nav class="flex gap-8">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="#lookbook" class="nav-link text-zinc-400">Lookbook</a>
+            <a href="#tienda" class="nav-link text-zinc-400">Colección</a>
+            <a href="https://wa.me/51938703934" class="nav-link font-bold">Contacto</a>
+        </nav>
     </header>
 
-    <a href="https://wa.me/51938703934?text=Hola%20NiadiShoes%2C%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
-        <span class="wa-text">Asesoría Directa</span>
-        <div class="wa-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </div>
+    <a href="https://wa.me/51938703934" target="_blank" class="wa-float">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8">
     </a>
 
-    <div class="main-container">
-        
-        <div class="section">
-            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1200" class="bg-image">
-            <div class="overlay-info">
-                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Atemporal / Heritage</span>
-                <h2 class="text-4xl font-light tracking-tighter mb-4">AIR FORCE 1 VINTAGE</h2>
-                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
-                    <p>CALIDAD: Premium G5</p>
-                    <p>MATERIAL: Cuero Grano Superior</p>
-                    <p>STOCK: Tallas 37 al 42</p>
-                    <p class="text-white text-xl font-bold mt-6">S/ 120.00</p>
-                </div>
-                <button onclick="enviarWA('AF1 Vintage', '120')" class="btn-lo-quiero">Lo quiero</button>
+    <section class="hero-container">
+        <div class="hero-section">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-img">
+            <div class="info-overlay">
+                <h3 class="text-3xl font-light tracking-widest uppercase">AF1 Triple White</h3>
+                <p class="text-xl font-bold mt-4">S/ 115.00</p>
+                <button onclick="comprar('AF1 Blanco', '115')" class="btn-zara mt-8">Lo quiero</button>
             </div>
         </div>
-
-        <div class="section">
-            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-image">
-            <div class="overlay-info">
-                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Cultura / Movimiento</span>
-                <h2 class="text-4xl font-light tracking-tighter mb-4">SB DUNK CELADON</h2>
-                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
-                    <p>CALIDAD: Master Original</p>
-                    <p>MATERIAL: Suede de alta densidad</p>
-                    <p>STOCK: Tallas 38 al 44</p>
-                    <p class="text-white text-xl font-bold mt-6">S/ 140.00</p>
-                </div>
-                <button onclick="enviarWA('SB Celadon', '140')" class="btn-lo-quiero">Lo quiero</button>
+        <div class="hero-section">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/198814976069228503_2" class="bg-img">
+            <div class="info-overlay">
+                <h3 class="text-3xl font-light tracking-widest uppercase">SB Dunk Celadon</h3>
+                <p class="text-xl font-bold mt-4">S/ 145.00</p>
+                <button onclick="comprar('SB Celadon', '145')" class="btn-zara mt-8">Lo quiero</button>
             </div>
         </div>
-
-        <div class="section">
-            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1200" class="bg-image">
-            <div class="overlay-info">
-                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Exclusividad / Urban</span>
-                <h2 class="text-4xl font-light tracking-tighter mb-4">NIKE AIR MAX LIMITED</h2>
-                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
-                    <p>CALIDAD: Top Tier Importado</p>
-                    <p>MATERIAL: Malla Tech & TPU</p>
-                    <p>STOCK: Tallas 39 al 43</p>
-                    <p class="text-white text-xl font-bold mt-6">S/ 150.00</p>
-                </div>
-                <button onclick="enviarWA('Air Max Limited', '150')" class="btn-lo-quiero">Lo quiero</button>
+        <div class="hero-section">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/133356834832415099_0" class="bg-img">
+            <div class="info-overlay">
+                <h3 class="text-3xl font-light tracking-widest uppercase">Yeezy 350 Black</h3>
+                <p class="text-xl font-bold mt-4">S/ 135.00</p>
+                <button onclick="comprar('Yeezy Black', '135')" class="btn-zara mt-8">Lo quiero</button>
             </div>
         </div>
+    </section>
 
-    </div>
+    <section id="lookbook" class="py-32 bg-white text-black">
+        <div class="container mx-auto px-10">
+            <div class="text-center mb-20">
+                <span class="text-[10px] tracking-[0.5rem] uppercase text-zinc-400">The Lookbook</span>
+                <h2 class="text-4xl font-light tracking-[0.3rem] uppercase mt-4">Estilo en las Calles</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="overflow-hidden bg-zinc-100 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 1">
+                </div>
+                <div class="overflow-hidden bg-zinc-100 aspect-[3/4] md:mt-20">
+                    <img src="https://images.unsplash.com/photo-1539109132314-34755249ff95?q=80&w=1000" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 2">
+                </div>
+                <div class="overflow-hidden bg-zinc-100 aspect-[3/4]">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1000" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 text-center bg-black border-t border-white/10">
+        <p class="text-[10px] tracking-[0.8rem] text-zinc-600 uppercase">NiadiShoes Perú / Cusco</p>
+    </footer>
 
     <script>
-        function enviarWA(modelo, precio) {
-            const mensaje = `Hola NiadiShoes Perú! 👋 Estoy visualizando el modelo ${modelo} de S/ ${precio} PEN y me interesa adquirirlo.`;
-            const url = `https://wa.me/51938703934?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
+        function comprar(modelo, precio) {
+            const numero = "51938703934"; 
+            const mensaje = `Hola NiadiShoes! 👋 Vi el modelo ${modelo} en la web. ¿Tienen stock?`;
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
 </body>
 </html>
-
