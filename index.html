@@ -55,7 +55,9 @@
             position: fixed; bottom: 35px; right: 35px; z-index: 100;
             background: white; border-radius: 50%; width: 60px; height: 60px;
             display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
         }
+        .wa-float:hover { transform: scale(1.1); }
 
         @media (max-width: 768px) {
             .hero-container { flex-direction: column; height: auto; }
@@ -73,13 +75,13 @@
         <nav class="flex gap-8">
             <a href="index.html" class="nav-link">Inicio</a>
             <a href="#lookbook" class="nav-link text-zinc-400">Lookbook</a>
-            <a href="#tienda" class="nav-link text-zinc-400">Colección</a>
-            <a href="https://wa.me/51938703934" class="nav-link font-bold">Contacto</a>
+            <a href="coleccion.html" class="nav-link text-zinc-400">Colección</a>
+            <a href="https://wa.me/51938703934" class="nav-link font-bold text-white">Contacto</a>
         </nav>
     </header>
 
     <a href="https://wa.me/51938703934" target="_blank" class="wa-float">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-8 h-8" alt="WhatsApp">
     </a>
 
     <section class="hero-container">
@@ -124,7 +126,7 @@
                     <img src="https://www.backseries.com/wp-content/uploads/OFFWHITE-x-Nike-a-la-venta-el-1-de-Septiembre-AirMax90.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 2">
                 </div>
                 <div class="overflow-hidden bg-zinc-100 aspect-[3/4]">
-                    <img src=https://asset.snipes.com/images/f_auto,q_80,d_fallback-sni.png/b_rgb:f8f8f8,c_pad,w_390,h_390/dpr_1.0/01948896_7/adidas-originals-forum-low-sneaker-w-blanco-2293-7" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 3">
+                    <img src="https://asset.snipes.com/images/f_auto,q_80,d_fallback-sni.png/b_rgb:f8f8f8,c_pad,w_390,h_390/dpr_1.0/01948896_7/adidas-originals-forum-low-sneaker-w-blanco-2293-7" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Modelo 3">
                 </div>
             </div>
         </div>
@@ -143,5 +145,3 @@
     </script>
 </body>
 </html>
-
-
