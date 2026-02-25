@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLECCIÓN COMPLETA | NIADISHOES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #050505; color: white; margin: 0; }
+        
+        /* Efecto de las tarjetas de producto */
+        .product-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .product-card:hover {
+            border-color: #fff;
+            transform: translateY(-10px);
+        }
+        .product-card img {
+            transition: transform 0.8s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Botón de compra minimalista */
+        .btn-order {
+            border: 1px solid white;
+            padding: 10px 20px;
+            font-size: 9px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-order:hover {
+            background: white;
+            color: black;
+        }
+
+        header { border-bottom: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body>
+
+    <header class="p-8 flex justify-between items-center sticky top-0 bg-black/90 backdrop-blur-md z-50">
+        <a href="index.html" class="text-[9px] tracking-[0.3rem] uppercase opacity-50 hover:opacity-100 transition">← Volver al Inicio</a>
+        <h1 class="text-xl font-light tracking-[0.6rem] uppercase">NiadiShoes</h1>
+        <div class="hidden md:block w-32"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div class="mb-20">
+            <h2 class="text-5xl font-light tracking-tighter uppercase italic">Colección <br><span class="not-italic font-bold">2026</span></h2>
+            <p class="text-zinc-500 text-xs tracking-[0.4rem] mt-4 uppercase">Stock exclusivo disponible en Cusco</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">Nike Dunk Low Panda</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Calidad Premium G5</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 120.00</span>
+                        <button onclick="comprar('Dunk Panda', '120')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1595341888016-a392ef81b7de?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">Jordan 1 Retro High</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Master Quality Edition</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 155.00</span>
+                        <button onclick="comprar('Jordan 1 Retro', '155')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">Air Force 1 Shadow</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Urban Style / Premium</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 130.00</span>
+                        <button onclick="comprar('AF1 Shadow', '130')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1675240244799-73600936e78a?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">NB 550 White Grey</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Esencial / Minimalista</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 145.00</span>
+                        <button onclick="comprar('NB 550 White', '145')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1584735175315-9d5df23860e6?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">SB Dunk Low Fog</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Suede Premium Finish</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 140.00</span>
+                        <button onclick="comprar('SB Dunk Fog', '140')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card group overflow-hidden">
+                <div class="aspect-square overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1632504313175-0e1215918797?q=80&w=1000" class="w-full h-full object-cover grayscale group-hover:grayscale-0">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-sm tracking-widest uppercase">Adidas Forum Low</h3>
+                    <p class="text-[10px] text-zinc-500 mt-2 uppercase tracking-widest">Classic Streetwear</p>
+                    <div class="mt-8 flex justify-between items-center">
+                        <span class="text-lg font-bold">S/ 125.00</span>
+                        <button onclick="comprar('Forum Low', '125')" class="btn-order">Lo quiero</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-20 text-center border-t border-white/5 opacity-20">
+        <p class="text-[9px] tracking-[1rem] uppercase">NiadiShoes Perú © 2026</p>
+    </footer>
+
+    <script>
+        function comprar(modelo, precio) {
+            const numero = "51938703934"; 
+            const mensaje = `Hola NiadiShoes! 👋 Vengo de la web (Sección Colección). Me interesa el modelo: ${modelo} (S/ ${precio}). ¿Tienen disponibilidad?`;
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
