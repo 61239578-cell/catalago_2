@@ -3,58 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo | Sneaker Elite Perú</title>
+    <title>SNEAKER ELITE | OFFICIAL SHOP</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: white; }
-        .product-card { transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-5px); border-color: #ef4444; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar invisible estilo Zara */
+        ::-webkit-scrollbar { width: 0px; }
+
+        .zara-grid {
+            display: grid;
+            grid-template-cols: repeat(auto-fill, minmax(50%, 1fr));
+            gap: 1px;
+            background-color: #1a1a1a; /* Color de la línea divisoria */
+        }
+
+        @media (max-width: 768px) {
+            .zara-grid { grid-template-cols: 1fr; }
+        }
+
+        .product-card {
+            position: relative;
+            height: 90vh;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .btn-zara {
+            border: 1px solid #ffffff;
+            padding: 12px 24px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            background: transparent;
+            color: white;
+        }
+
+        .btn-zara:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .header-glass {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        }
     </style>
 </head>
 <body>
-    <header class="p-6 flex justify-between items-center border-b border-white/10 sticky top-0 bg-black/80 backdrop-blur-md z-50">
-        <h1 class="text-xl font-bold italic">SNEAKER ELITE <span class="text-red-600">PERÚ</span></h1>
-        <a href="https://wa.me/51938703934" target="_blank" class="bg-green-600 p-2 rounded-full">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6 h-6 invert" alt="WhatsApp">
-        </a>
+
+    <header class="fixed top-0 left-0 w-full z-50 p-8 flex justify-between items-start header-glass">
+        <div>
+            <h1 class="text-2xl md:text-4xl font-bold tracking-[0.4em] leading-none uppercase">Sneaker<br>Elite</h1>
+            <p class="text-[8px] mt-3 tracking-[0.6em] font-light text-zinc-400 uppercase">Perú / Edición Limitada</p>
+        </div>
+        
+        <nav class="flex flex-col gap-3 text-[9px] tracking-[0.3em] font-light text-right uppercase">
+            <a href="#" class="hover:text-zinc-400 transition">Colección</a>
+            <a href="#" class="hover:text-zinc-400 transition">Guía de tallas</a>
+            <a href="https://wa.me/51938703934" class="font-bold border-b border-white pb-1">Contacto</a>
+        </nav>
     </header>
-    <main class="p-4 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-6 text-center">NUESTRA COLECCIÓN</h2>
-        <div class="grid grid-cols-1 gap-8">
-            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1000" alt="Nike Dunk Low Panda" class="w-full aspect-square object-cover">
-                <div class="p-6">
-                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Nike</span>
-                    <h3 class="text-xl font-bold mt-1">Dunk Low 'Panda'</h3>
-                    <p class="text-2xl font-bold mt-2">S/ 499.00</p>
-                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Dunk Low Panda" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
-                </div>
-            </div>
-            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1597043533400-a9cb4c330170?q=80&w=1000" alt="Jordan 4 Retro" class="w-full aspect-square object-cover">
-                <div class="p-6">
-                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Jordan</span>
-                    <h3 class="text-xl font-bold mt-1">Air Jordan 4 Retro</h3>
-                    <p class="text-2xl font-bold mt-2">S/ 850.00</p>
-                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Jordan 4 Retro" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
-                </div>
-            </div>
-            <div class="product-card bg-zinc-900 border border-white/5 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000" alt="Air Force 1" class="w-full aspect-square object-cover">
-                <div class="p-6">
-                    <span class="text-red-600 text-xs font-bold tracking-widest uppercase">Nike</span>
-                    <h3 class="text-xl font-bold mt-1">Air Force 1 '07</h3>
-                    <p class="text-2xl font-bold mt-2">S/ 429.00</p>
-                    <a href="https://wa.me/51938703934?text=Hola! Quiero las Air Force 1" class="block w-full text-center bg-white text-black font-bold py-4 mt-6 rounded-xl hover:bg-zinc-200 transition">Comprar por WhatsApp</a>
+
+    <main class="zara-grid">
+        
+        <div class="product-card group">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200" class="product-image">
+            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Nike Dunk Low Panda</h2>
+                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 499.00 PEN</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <button onclick="comprar('Dunk Panda', '39')" class="btn-zara">Talla 39</button>
+                    <button onclick="comprar('Dunk Panda', '41')" class="btn-zara">Talla 41</button>
+                    <button onclick="comprar('Dunk Panda', '42')" class="btn-zara">Talla 42</button>
                 </div>
             </div>
         </div>
+
+        <div class="product-card group">
+            <img src="https://images.unsplash.com/photo-1597043533400-a9cb4c330170?q=80&w=1200" class="product-image">
+            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Jordan 4 Retro Military</h2>
+                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 850.00 PEN</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <button onclick="comprar('Jordan 4', '40')" class="btn-zara">Talla 40</button>
+                    <button onclick="comprar('Jordan 4', '43')" class="btn-zara">Talla 43</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card flex items-center justify-center p-12 border-t border-zinc-900">
+            <div class="max-w-xs text-center">
+                <span class="text-[8px] tracking-[0.8em] text-zinc-500 block mb-8 uppercase">Editorial 01</span>
+                <h3 class="text-3xl font-light tracking-[0.2em] leading-tight uppercase">Calidad de<br>Élite</h3>
+                <p class="text-[9px] mt-10 text-zinc-400 leading-loose tracking-[0.2em] uppercase">
+                    Selección exclusiva de sneakers importados con los más altos estándares. Envíos desde Cusco a todo el territorio peruano.
+                </p>
+                <div class="mt-12 h-[1px] w-12 bg-white mx-auto"></div>
+            </div>
+        </div>
+
+        <div class="product-card group">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="product-image">
+            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Nike Air Force 1 White</h2>
+                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 420.00 PEN</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <button onclick="comprar('Air Force 1', '42')" class="btn-zara">Talla 42</button>
+                </div>
+            </div>
+        </div>
+
     </main>
-    <footer class="bg-zinc-900/50 mt-12 p-8 border-t border-white/10 text-center">
-        <h4 class="font-bold text-lg mb-4">ENVÍOS A TODO EL PERÚ 🇵🇪</h4>
-        <p class="text-zinc-400 text-sm">Shalom • Olva • Marvisur</p>
-        <p class="text-zinc-500 text-xs mt-6 italic">Cusco, Perú</p>
+
+    <footer class="py-24 flex flex-col items-center gap-8 bg-black">
+        <div class="flex gap-12 text-[9px] tracking-[0.4em] uppercase text-zinc-500 font-light">
+            <a href="#" class="hover:text-white transition">Instagram</a>
+            <a href="#" class="hover:text-white transition">Tiktok</a>
+            <a href="#" class="hover:text-white transition">Facebook</a>
+        </div>
+        <p class="text-[8px] tracking-[0.6em] text-zinc-700 uppercase">Sneaker Elite Perú © 2026</p>
     </footer>
+
+    <script>
+        function comprar(modelo, talla) {
+            const mensaje = `Hola Sneaker Elite! 👋 Deseo información sobre el modelo: ${modelo} en talla: ${talla}.`;
+            const url = `https://wa.me/51938703934?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
