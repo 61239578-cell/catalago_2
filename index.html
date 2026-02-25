@@ -3,149 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SNEAKER ELITE | OFFICIAL SHOP</title>
+    <title>NIADISHOES PERÚ | OFFICIAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #000000;
-            color: #ffffff;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        /* Scrollbar invisible estilo Zara */
-        ::-webkit-scrollbar { width: 0px; }
-
-        .zara-grid {
-            display: grid;
-            grid-template-cols: repeat(auto-fill, minmax(50%, 1fr));
-            gap: 1px;
-            background-color: #1a1a1a; /* Color de la línea divisoria */
-        }
-
-        @media (max-width: 768px) {
-            .zara-grid { grid-template-cols: 1fr; }
-        }
-
-        .product-card {
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Montserrat', sans-serif; background: #000; overflow-x: hidden; }
+        
+        /* Contenedor Triple Vertical */
+        .main-container { display: flex; height: 100vh; width: 100vw; transition: all 0.6s ease; }
+        
+        .section {
             position: relative;
-            height: 90vh;
-            background-color: #000;
+            flex: 1;
+            height: 100%;
             overflow: hidden;
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            border-right: 1px solid rgba(255,255,255,0.05);
         }
 
-        .product-image {
+        .section:hover { flex: 2; }
+        .section:hover .overlay-info { opacity: 1; transform: translateY(0); }
+        .section:hover .bg-image { transform: scale(1.1); filter: brightness(0.4); }
+
+        .bg-image {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 1.5s ease;
+            filter: brightness(0.6) contrast(1.1); /* Fondo más oscuro y dramático */
         }
 
-        .product-card:hover .product-image {
-            transform: scale(1.05);
+        .overlay-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 60px 40px;
+            background: linear-gradient(to top, rgba(0,0,0,1) 30%, transparent);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease 0.2s;
+            color: white;
+            pointer-events: none;
         }
 
-        .btn-zara {
-            border: 1px solid #ffffff;
-            padding: 12px 24px;
+        .btn-lo-quiero {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 40px;
+            border: 1px solid white;
+            background: transparent;
+            color: white;
+            font-size: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-lo-quiero:hover { background: white; color: black; font-weight: bold; }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            text-align: center;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .brand-name {
+            font-size: 2.8rem;
+            font-weight: 100;
+            letter-spacing: 1.2rem;
+            text-transform: uppercase;
+            color: white;
+            margin: 0;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        }
+
+        /* BOTÓN FLOTANTE DE CONTACTO (Neuromarketing: Accesibilidad constante) */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover { transform: translateY(-5px); }
+
+        .wa-text {
+            color: white;
             font-size: 10px;
             letter-spacing: 3px;
             text-transform: uppercase;
-            transition: all 0.4s;
-            background: transparent;
-            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 15px;
+            border-radius: 4px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .btn-zara:hover {
-            background: #ffffff;
-            color: #000000;
+        .wa-icon {
+            width: 55px;
+            height: 55px;
+            background: #fff; /* Blanco para mantener el estilo Zara */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .header-glass {
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        .wa-icon img { width: 30px; height: 30px; }
+
+        @media (max-width: 768px) {
+            .main-container { flex-direction: column; overflow-y: auto; }
+            .section { height: 100vh; min-height: 100vh; }
+            .brand-name { font-size: 1.5rem; letter-spacing: 0.5rem; }
+            .whatsapp-float { bottom: 20px; right: 20px; }
+            .wa-text { display: none; } /* En móvil solo el icono para no estorbar */
         }
     </style>
 </head>
 <body>
 
-    <header class="fixed top-0 left-0 w-full z-50 p-8 flex justify-between items-start header-glass">
-        <div>
-            <h1 class="text-2xl md:text-4xl font-bold tracking-[0.4em] leading-none uppercase">Sneaker<br>Elite</h1>
-            <p class="text-[8px] mt-3 tracking-[0.6em] font-light text-zinc-400 uppercase">Perú / Edición Limitada</p>
-        </div>
-        
-        <nav class="flex flex-col gap-3 text-[9px] tracking-[0.3em] font-light text-right uppercase">
-            <a href="#" class="hover:text-zinc-400 transition">Colección</a>
-            <a href="#" class="hover:text-zinc-400 transition">Guía de tallas</a>
-            <a href="https://wa.me/51938703934" class="font-bold border-b border-white pb-1">Contacto</a>
-        </nav>
+    <header>
+        <h1 class="brand-name">NiadiShoes</h1>
+        <p class="text-[9px] tracking-[0.5rem] text-white/50 uppercase mt-2">Perú / High Standards</p>
     </header>
 
-    <main class="zara-grid">
+    <a href="https://wa.me/51938703934?text=Hola%20NiadiShoes%2C%20quisiera%20hacer%20una%20consulta." class="whatsapp-float" target="_blank">
+        <span class="wa-text">Asesoría Directa</span>
+        <div class="wa-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </div>
+    </a>
+
+    <div class="main-container">
         
-        <div class="product-card group">
-            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1200" class="product-image">
-            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Nike Dunk Low Panda</h2>
-                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 499.00 PEN</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <button onclick="comprar('Dunk Panda', '39')" class="btn-zara">Talla 39</button>
-                    <button onclick="comprar('Dunk Panda', '41')" class="btn-zara">Talla 41</button>
-                    <button onclick="comprar('Dunk Panda', '42')" class="btn-zara">Talla 42</button>
+        <div class="section">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1200" class="bg-image">
+            <div class="overlay-info">
+                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Atemporal / Heritage</span>
+                <h2 class="text-4xl font-light tracking-tighter mb-4">AIR FORCE 1 VINTAGE</h2>
+                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
+                    <p>CALIDAD: Premium G5</p>
+                    <p>MATERIAL: Cuero Grano Superior</p>
+                    <p>STOCK: Tallas 37 al 42</p>
+                    <p class="text-white text-xl font-bold mt-6">S/ 120.00</p>
                 </div>
+                <button onclick="enviarWA('AF1 Vintage', '120')" class="btn-lo-quiero">Lo quiero</button>
             </div>
         </div>
 
-        <div class="product-card group">
-            <img src="https://images.unsplash.com/photo-1597043533400-a9cb4c330170?q=80&w=1200" class="product-image">
-            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Jordan 4 Retro Military</h2>
-                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 850.00 PEN</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <button onclick="comprar('Jordan 4', '40')" class="btn-zara">Talla 40</button>
-                    <button onclick="comprar('Jordan 4', '43')" class="btn-zara">Talla 43</button>
+        <div class="section">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-image">
+            <div class="overlay-info">
+                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Cultura / Movimiento</span>
+                <h2 class="text-4xl font-light tracking-tighter mb-4">SB DUNK CELADON</h2>
+                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
+                    <p>CALIDAD: Master Original</p>
+                    <p>MATERIAL: Suede de alta densidad</p>
+                    <p>STOCK: Tallas 38 al 44</p>
+                    <p class="text-white text-xl font-bold mt-6">S/ 140.00</p>
                 </div>
+                <button onclick="enviarWA('SB Celadon', '140')" class="btn-lo-quiero">Lo quiero</button>
             </div>
         </div>
 
-        <div class="product-card flex items-center justify-center p-12 border-t border-zinc-900">
-            <div class="max-w-xs text-center">
-                <span class="text-[8px] tracking-[0.8em] text-zinc-500 block mb-8 uppercase">Editorial 01</span>
-                <h3 class="text-3xl font-light tracking-[0.2em] leading-tight uppercase">Calidad de<br>Élite</h3>
-                <p class="text-[9px] mt-10 text-zinc-400 leading-loose tracking-[0.2em] uppercase">
-                    Selección exclusiva de sneakers importados con los más altos estándares. Envíos desde Cusco a todo el territorio peruano.
-                </p>
-                <div class="mt-12 h-[1px] w-12 bg-white mx-auto"></div>
-            </div>
-        </div>
-
-        <div class="product-card group">
-            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="product-image">
-            <div class="absolute inset-0 flex flex-col justify-end p-10 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h2 class="text-xs tracking-[0.4em] font-light uppercase">Nike Air Force 1 White</h2>
-                <p class="text-[11px] mt-2 font-bold tracking-widest">S/ 420.00 PEN</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <button onclick="comprar('Air Force 1', '42')" class="btn-zara">Talla 42</button>
+        <div class="section">
+            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?q=80&w=1200" class="bg-image">
+            <div class="overlay-info">
+                <span class="text-[9px] tracking-[0.4em] text-white/40 block mb-2 uppercase italic">Exclusividad / Urban</span>
+                <h2 class="text-4xl font-light tracking-tighter mb-4">NIKE AIR MAX LIMITED</h2>
+                <div class="space-y-3 text-[11px] tracking-[0.2em] font-light text-white/70">
+                    <p>CALIDAD: Top Tier Importado</p>
+                    <p>MATERIAL: Malla Tech & TPU</p>
+                    <p>STOCK: Tallas 39 al 43</p>
+                    <p class="text-white text-xl font-bold mt-6">S/ 150.00</p>
                 </div>
+                <button onclick="enviarWA('Air Max Limited', '150')" class="btn-lo-quiero">Lo quiero</button>
             </div>
         </div>
 
-    </main>
-
-    <footer class="py-24 flex flex-col items-center gap-8 bg-black">
-        <div class="flex gap-12 text-[9px] tracking-[0.4em] uppercase text-zinc-500 font-light">
-            <a href="#" class="hover:text-white transition">Instagram</a>
-            <a href="#" class="hover:text-white transition">Tiktok</a>
-            <a href="#" class="hover:text-white transition">Facebook</a>
-        </div>
-        <p class="text-[8px] tracking-[0.6em] text-zinc-700 uppercase">Sneaker Elite Perú © 2026</p>
-    </footer>
+    </div>
 
     <script>
-        function comprar(modelo, talla) {
-            const mensaje = `Hola Sneaker Elite! 👋 Deseo información sobre el modelo: ${modelo} en talla: ${talla}.`;
+        function enviarWA(modelo, precio) {
+            const mensaje = `Hola NiadiShoes Perú! 👋 Estoy visualizando el modelo ${modelo} de S/ ${precio} PEN y me interesa adquirirlo.`;
             const url = `https://wa.me/51938703934?text=${encodeURIComponent(mensaje)}`;
             window.open(url, '_blank');
         }
