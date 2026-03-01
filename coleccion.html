@@ -27,9 +27,10 @@
         /* Ajustes para Celular */
         @media (max-width: 1023px) {
             .product-card { background: #0a0a0a; border: 1px solid #111; margin-bottom: 10px; }
-            .grayscale { filter: none !important; } /* En móvil las fotos se ven a color directo */
+            .grayscale { filter: none !important; }
             h2 { font-size: 3rem !important; line-height: 1; }
-            header { padding: 1.5rem !important; }
+            /* Ajuste de espacio para el nuevo menú central en móvil */
+            main { pt-56 !important; }
         }
 
         .btn-order {
@@ -39,7 +40,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: 0.3s;
-            width: 100%; /* Botón ancho para facilitar el toque en móvil */
+            width: 100%;
         }
         
         @media (min-width: 768px) {
@@ -51,18 +52,24 @@
             color: black;
         }
 
+        /* Estilo para el menú centralizado */
         header { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-link { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
     </style>
 </head>
 <body>
 
-    <header class="p-6 md:p-8 flex justify-between items-center sticky top-0 bg-black/95 backdrop-blur-md z-50">
-        <a href="index.html" class="text-[10px] tracking-[0.2rem] uppercase opacity-60 hover:opacity-100 transition">← Inicio</a>
-        <h1 class="text-lg md:text-xl font-light tracking-[0.5rem] uppercase">NiadiShoes</h1>
-        <div class="hidden md:block w-20"></div>
+    <header class="fixed top-0 w-full z-[110] p-6 md:p-8 flex flex-col items-center bg-black/95 backdrop-blur-md">
+        <h1 class="text-lg md:text-xl font-light tracking-[0.5rem] md:tracking-[0.8rem] uppercase mb-4 md:mb-6">NiadiShoes</h1>
+        <nav class="flex gap-4 md:gap-10 border-t border-white/10 pt-4 w-full justify-center">
+            <a href="index.html" class="nav-link opacity-50 hover:opacity-100">Inicio</a>
+            <a href="coleccion.html" class="nav-link border-b border-white">Colección</a>
+            <a href="booklook.html" class="nav-link opacity-50 hover:opacity-100">Booklook</a>
+            <a href="contactos.html" class="nav-link opacity-50 hover:opacity-100">Contactos</a>
+        </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 pt-48 md:pt-64 pb-12 md:py-20">
         
         <div class="mb-12 md:mb-20 text-center md:text-left">
             <h2 class="text-5xl md:text-7xl font-light tracking-tighter uppercase italic">Colección <br><span class="not-italic font-bold">2026</span></h2>
