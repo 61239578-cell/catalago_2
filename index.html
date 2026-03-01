@@ -22,7 +22,7 @@
         .bg-img { 
             position: absolute; top: 0; left: 0;
             width: 100%; height: 100%; object-fit: cover; 
-            transition: all 1s ease; filter: brightness(0.5); 
+            transition: all 1s ease; filter: brightness(0.4); 
             z-index: 1;
         }
 
@@ -48,82 +48,103 @@
 
         /* CELULAR: Expansión Vertical + Scroll libre */
         @media (max-width: 1023px) {
-            body { overflow-y: auto; } /* Permite mover el dedo arriba/abajo */
+            body { overflow-y: auto; } 
             .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 60vh; flex: none; transition: height 0.6s ease; }
+            .hero-section { height: 65vh; flex: none; transition: height 0.6s ease; border-bottom: 1px solid #111; }
             
-            /* Al tocar, la sección crece para mostrar la historia */
-            .hero-section:focus, .hero-section:active { height: 90vh; }
-            .hero-section:focus .bg-img, .hero-section:active .bg-img { filter: brightness(0.2); }
+            /* Efecto de expansión al tocar */
+            .hero-section:focus, .hero-section:active { height: 95vh; outline: none; }
+            .hero-section:focus .bg-img, .hero-section:active .bg-img { filter: brightness(0.15); }
             .hero-section:focus .info-content, .hero-section:active .info-content { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
-            header { padding: 15px !important; background: rgba(0,0,0,0.8); backdrop-blur: 10px; }
+            header { padding: 15px !important; background: rgba(0,0,0,0.85); backdrop-blur: 10px; }
             .nav-link { font-size: 8px !important; }
         }
     </style>
 </head>
 <body>
 
-    <header class="fixed top-0 w-full z-[110] p-10 flex justify-between items-center transition-all">
-        <h1 class="text-lg md:text-xl font-light tracking-[0.4rem] md:tracking-[0.8rem] uppercase">NiadiShoes</h1>
+    <header class="fixed top-0 w-full z-[110] p-10 flex justify-between items-center">
+        <h1 class="text-lg md:text-xl font-light tracking-[0.4rem] uppercase">NiadiShoes</h1>
         <nav class="flex gap-3 md:gap-8">
             <a href="index.html" class="nav-link text-[9px] tracking-widest uppercase border-b border-white">Inicio</a>
-            <a href="coleccion.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50 hover:opacity-100">Colección</a>
-            <a href="booklook.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50 hover:opacity-100">Booklook</a>
-            <a href="contactos.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50 hover:opacity-100">Contactos</a>
+            <a href="coleccion.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50">Colección</a>
+            <a href="booklook.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50">Booklook</a>
+            <a href="contactos.html" class="nav-link text-[9px] tracking-widest uppercase opacity-50">Contactos</a>
         </nav>
     </header>
 
     <main class="hero-container">
         <div class="hero-section" tabindex="0">
-            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-img" alt="AF1">
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200" class="bg-img">
             <div class="info-content">
                 <h3 class="text-3xl font-light tracking-[0.5rem] uppercase mb-4">Air Force 1</h3>
-                <p class="history-text">Lanzadas en 1982 por Bruce Kilgore, fueron las primeras con tecnología Nike Air: amortiguación revolucionaria que las convirtió en leyenda urbana.</p>
-                <p class="specs-text">Piel premium duradera, perforaciones para ventilación y suela con Air visible para impactos cero.</p>
-                <p class="hype-text">¡Domina la calle con este clásico inmortal: versátil y eterno!</p>
+                <p class="history-text">Lanzadas en 1982, fueron las primeras con tecnología Nike Air. Un diseño que sobrevivió al tiempo para volverse el alma de la calle.</p>
+                <p class="specs-text">Piel premium y suela con amortiguación Air oculta.</p>
+                <p class="hype-text">¡Estilo eterno que combina con todo!</p>
                 <p class="text-2xl font-bold mb-4 italic">S/ 115.00</p>
-                <button onclick="comprar('AF1 White', '115')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition">Lo quiero</button>
+                <button onclick="comprar('AF1 White', '115')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest">Lo quiero</button>
             </div>
         </div>
 
         <div class="hero-section" tabindex="0">
-            <img src="https://www.allaboutanthony.com/wp-content/uploads/2021/04/Nike-SB-Dunk-Low-Celadon-WDYWT-On-Feet.jpg" class="bg-img" alt="SB Dunk">
+            <img src="https://www.allaboutanthony.com/wp-content/uploads/2021/04/Nike-SB-Dunk-Low-Celadon-WDYWT-On-Feet.jpg" class="bg-img">
             <div class="info-content">
                 <h3 class="text-3xl font-light tracking-[0.5rem] uppercase mb-4">SB Celadon</h3>
-                <p class="history-text">Edición Celadon rinde homenaje al senderismo '90s con tonos verde suave y detalles ACG para una resistencia total.</p>
-                <p class="specs-text">Zoom Air en talón para aterrizajes suaves y tracción imbatible; flexible y transpirable.</p>
-                <p class="hype-text">¡Ponte esta joya skater: estilo fresco natural y grip que te hace volar!</p>
+                <p class="history-text">Inspiradas en el senderismo retro. Colores que evocan la naturaleza con la resistencia del mundo skater.</p>
+                <p class="specs-text">Zoom Air en talón y gamuza de alta duración.</p>
+                <p class="hype-text">¡Grip extremo y un estilo único!</p>
                 <p class="text-2xl font-bold mb-4 italic">S/ 145.00</p>
-                <button onclick="comprar('SB Celadon', '145')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition">Lo quiero</button>
+                <button onclick="comprar('SB Celadon', '145')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest">Lo quiero</button>
             </div>
         </div>
 
         <div class="hero-section" tabindex="0">
-            <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F09%2Fyeezy-boost-350-v2-black-friday-release-information-tw.jpg?w=1080&cbr=1&q=90&fit=max" class="bg-img" alt="Yeezy">
+            <img src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2019%2F09%2Fyeezy-boost-350-v2-black-friday-release-information-tw.jpg?w=1080&cbr=1&q=90&fit=max" class="bg-img">
             <div class="info-content">
                 <h3 class="text-3xl font-light tracking-[0.5rem] uppercase mb-4">Yeezy 350</h3>
-                <p class="history-text">Fusiona minimalismo futurista y tecnología Boost: la espuma que responde devolviendo energía en cada paso dado.</p>
-                <p class="specs-text">Primeknit transpirable que se adapta como calcetín y silueta estilizada para look slim.</p>
-                <p class="hype-text">¡Hype puro: comodidad adictiva y estatus VIP; eleva tu game ahora!</p>
+                <p class="history-text">La unión perfecta entre ciencia y moda. El tejido Primeknit se adapta a tu pie como una segunda piel.</p>
+                <p class="specs-text">Suela Boost original para un retorno de energía infinito.</p>
+                <p class="hype-text">¡Camina sobre las nubes con Hype real!</p>
                 <p class="text-2xl font-bold mb-4 italic">S/ 135.00</p>
-                <button onclick="comprar('Yeezy 350', '135')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest hover:bg-white hover:text-black transition">Lo quiero</button>
+                <button onclick="comprar('Yeezy 350', '135')" class="border border-white px-8 py-2 text-[10px] uppercase tracking-widest">Lo quiero</button>
             </div>
         </div>
     </main>
 
+    <section class="bg-[#050505] py-24 px-6 md:px-20 border-t border-white/5">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 space-y-8">
+                <h2 class="text-4xl md:text-6xl font-light tracking-tighter uppercase italic leading-none">
+                    Desde el Cusco <br><span class="font-bold not-italic">Para el Mundo</span>
+                </h2>
+                <div class="space-y-6 text-zinc-400 text-sm md:text-base leading-relaxed tracking-wide">
+                    <p>
+                        NiadiShoes nació como una tienda virtual en la <b>Ciudad Imperial del Cusco</b>. Lo que empezó en TikTok como una conexión con la cultura urbana, hoy es una realidad digital enfocada en la exclusividad.
+                    </p>
+                    <p>
+                        Nos dedicamos a ofrecer productos de <b>réplica de la mejor calidad</b> en el mercado. Seleccionamos cuidadosamente cada par para asegurar que la estética y la durabilidad cumplan con los estándares de nuestros clientes más exigentes.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="md:w-1/2 grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?q=80&w=800" class="grayscale opacity-50 hover:opacity-100 transition duration-700">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=800" class="grayscale mt-8 opacity-50 hover:opacity-100 transition duration-700">
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-black py-20 px-10 text-center border-t border-white/10">
-        <h4 class="text-xs tracking-[0.5rem] uppercase mb-6 opacity-50">Encuéntranos</h4>
         <div class="flex flex-col gap-4 text-[10px] tracking-widest uppercase">
-            <p>Sicuani, Cusco, Perú</p>
-            <p>WhatsApp: +51 938 703 934</p>
-            <p class="mt-10 opacity-30 italic">NiadiShoes © 2026 - Paso a paso con tu estilo</p>
+            <p>Sicuani, Cusco, Perú | WhatsApp: +51 938 703 934</p>
+            <p class="opacity-30 italic">NiadiShoes © 2026</p>
         </div>
     </footer>
 
     <script>
         function comprar(modelo, precio) {
-            const mensaje = `Hola NiadiShoes! 👋 Me interesó la historia de las ${modelo}. ¿Tienen mi talla disponible?`;
+            const mensaje = `Hola NiadiShoes! 👋 Me interesó las ${modelo}. ¿Tienen mi talla?`;
             window.open(`https://wa.me/51938703934?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
     </script>
