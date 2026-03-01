@@ -8,49 +8,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Montserrat', sans-serif; background: #000; color: white; margin: 0; }
-        .look-card img { transition: 0.8s ease; }
+        
+        /* Efecto de las imágenes */
+        .look-card img { transition: 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
         .look-card:hover img { transform: scale(1.05); filter: grayscale(0); }
+
+        /* Estilo para el menú centralizado */
+        header { border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-link { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+
+        @media (max-width: 1023px) {
+            .look-card { margin-bottom: 40px; }
+            h2 { font-size: 3rem !important; }
+        }
     </style>
 </head>
 <body>
 
-    <header class="p-8 flex justify-between items-center sticky top-0 bg-black/90 z-50">
-        <a href="index.html" class="text-[9px] tracking-widest uppercase opacity-50">← Volver</a>
-        <h1 class="text-xl font-light tracking-[0.6rem] uppercase">Booklook</h1>
-        <div class="w-16"></div>
+    <header class="fixed top-0 w-full z-[110] p-6 md:p-8 flex flex-col items-center bg-black/95 backdrop-blur-md">
+        <h1 class="text-lg md:text-xl font-light tracking-[0.5rem] md:tracking-[0.8rem] uppercase mb-4 md:mb-6">NiadiShoes</h1>
+        <nav class="flex gap-4 md:gap-10 border-t border-white/10 pt-4 w-full justify-center">
+            <a href="index.html" class="nav-link opacity-50 hover:opacity-100">Inicio</a>
+            <a href="coleccion.html" class="nav-link opacity-50 hover:opacity-100">Colección</a>
+            <a href="booklook.html" class="nav-link border-b border-white">Booklook</a>
+            <a href="contactos.html" class="nav-link opacity-50 hover:opacity-100">Contactos</a>
+        </nav>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-20">
+    <main class="max-w-7xl mx-auto px-6 pt-48 md:pt-64 pb-20">
+        
+        <div class="mb-16 text-center">
+            <h2 class="text-5xl md:text-7xl font-light tracking-tighter uppercase italic leading-none">Análisis <br><span class="not-italic font-bold text-zinc-500 text-3xl md:text-5xl uppercase tracking-[0.5rem]">Editorial</span></h2>
+            <p class="text-[10px] tracking-[0.3rem] mt-6 uppercase opacity-40">Estética & Rendimiento</p>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             
-            <div class="look-card space-y-6">
-                <div class="overflow-hidden bg-zinc-900 aspect-[4/5]">
+            <div class="look-card space-y-8">
+                <div class="overflow-hidden bg-zinc-900 aspect-[4/5] border border-white/5">
                     <img src="https://cdn.runrepeat.com/storage/gallery/product_content/25153/nike-air-force-1-07-lv-8-outdoor-01-22215294-main.jpg" class="w-full h-full object-cover grayscale">
                 </div>
                 <div class="space-y-4">
-                    <h3 class="text-lg font-bold tracking-widest uppercase italic">AF1 LV8 Edition</h3>
-                    <p class="text-xs text-zinc-400 leading-relaxed text-justify">
-                        Las LV8 y su suela más alta que nunca. Nos parecieron muy cómodas para caminar por la ciudad y súper versátiles para realizar diversas actividades diarias con cualquier atuendo, ya que su estilo atemporal combina con casi todo. Aunque la sensación de confinamiento que ofrecen es magnífica, su estructura que se adapta al pie puede resultar un poco rígida al principio, o en cualquier momento si tienes pies anchos.
+                    <h3 class="text-lg font-bold tracking-widest uppercase italic border-l-2 border-white pl-4">AF1 LV8 Edition</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed text-justify italic">
+                        "Las LV8 y su suela más alta que nunca. Nos parecieron muy cómodas para caminar por la ciudad y súper versátiles para realizar diversas actividades diarias con cualquier atuendo, ya que su estilo atemporal combina con casi todo."
                     </p>
-                    <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                    <div class="flex justify-between items-center pt-6 border-t border-white/10">
                         <span class="text-xl font-light">S/ 165.00</span>
-                        <a href="https://wa.me/51938703934" class="text-[9px] tracking-[3px] border border-white px-6 py-2 uppercase hover:bg-white hover:text-black transition">+ Información</a>
+                        <a href="https://wa.me/51938703934" target="_blank" class="text-[9px] tracking-[3px] border border-white px-6 py-2 uppercase hover:bg-white hover:text-black transition">Consultar</a>
                     </div>
                 </div>
             </div>
 
-            <div class="look-card space-y-6 md:mt-32">
-                <div class="overflow-hidden bg-zinc-900 aspect-[4/5]">
+            <div class="look-card space-y-8 md:mt-32">
+                <div class="overflow-hidden bg-zinc-900 aspect-[4/5] border border-white/5">
                     <img src="https://cdn-images.farfetch-contents.com/17/46/72/15/17467215_36312767_1000.jpg" class="w-full h-full object-cover grayscale">
                 </div>
                 <div class="space-y-4">
-                    <h3 class="text-lg font-bold tracking-widest uppercase italic">YEEZY 700 Wash Orange</h3>
-                    <p class="text-xs text-zinc-400 leading-relaxed text-justify">
-                        La Yeezy 700 "Wash Orange" destaca por su impactante mediasuela naranja que rompe la sobriedad del gris industrial. Su diseño multicapa combina gamuza premium y malla transpirable, ofreciendo una estética robusta pero ligera. Ideal para quienes buscan un look disruptivo en la ciudad, manteniendo la comodidad legendaria de la silueta 700.
+                    <h3 class="text-lg font-bold tracking-widest uppercase italic border-l-2 border-white pl-4">YEEZY 700 Wash Orange</h3>
+                    <p class="text-xs text-zinc-400 leading-relaxed text-justify italic">
+                        "Destaca por su impactante mediasuela naranja que rompe la sobriedad del gris industrial. Su diseño multicapa combina gamuza premium y malla transpirable, ofreciendo una estética robusta pero ligera."
                     </p>
-                    <div class="flex justify-between items-center pt-4 border-t border-white/10">
+                    <div class="flex justify-between items-center pt-6 border-t border-white/10">
                         <span class="text-xl font-light">S/ 180.00</span>
-                        <a href="https://wa.me/51938703934" class="text-[9px] tracking-[3px] border border-white px-6 py-2 uppercase hover:bg-white hover:text-black transition">+ Información</a>
+                        <a href="https://wa.me/51938703934" target="_blank" class="text-[9px] tracking-[3px] border border-white px-6 py-2 uppercase hover:bg-white hover:text-black transition">Consultar</a>
                     </div>
                 </div>
             </div>
@@ -58,8 +79,8 @@
         </div>
     </main>
 
-    <footer class="py-20 text-center opacity-30 text-[8px] tracking-[1rem] uppercase">
-        NiadiShoes 2026
+    <footer class="py-20 text-center opacity-20 border-t border-white/5">
+        <p class="text-[8px] tracking-[1rem] uppercase">NiadiShoes © 2026 - Cusco</p>
     </footer>
 
 </body>
